@@ -3,7 +3,11 @@ Splurty::Application.routes.draw do
 
   resources :quotes
   get 'about', to: 'quotes#about'
-  
+  get 'contact', to: 'quotes#contact'
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
   # a bunch of other stuff...
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
