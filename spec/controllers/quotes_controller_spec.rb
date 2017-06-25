@@ -8,16 +8,4 @@ RSpec.describe QuotesController, type: :controller do
       expect(response).to have_http_status(200)
     end
   end
-
-  describe "quote#create action form", :type => :feature do
-    it "returns successfully with an HTTP 200 status code"do
-      visit root_path
-      within(root_path) do
-        fill_in "Finish this phrase: You know you are having a Chicago Moment when...", :with => "cats"
-        fill_in "Who is the author?", :with => 'Albert Einstein'
-      end
-      click_button "Create"
-      expect(response).to have_http_status(200)
-    end
-  end
 end
