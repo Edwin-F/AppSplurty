@@ -19,7 +19,7 @@ RSpec.feature "Homepage", :type => :feature do
   end
 
   describe "quote#create action form" do
-    it "returns successfully with an HTTP 200 status code"do
+    it "returns successfully with an HTTP 200 status code", :js => true do
       p Quote.all
       visit root_path
       #within(root_path) do
@@ -27,8 +27,10 @@ RSpec.feature "Homepage", :type => :feature do
         fill_in "Finish this phrase: You know you are having a Chicago Moment when...", :with => "cats"
         fill_in "Who is the author?", :with => 'Einstein'
       #end
-      click_button "Create"
-      puts " "
+      click_on "Create"
+      save_and_open_screenshot('screenshot.png')
+      #page.save_screenshot("screenshot.png")
+      puts page.html
       p Quote.all
       expect(Quote.count).to eq 2
     end

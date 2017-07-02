@@ -55,4 +55,5 @@ gem "letter_opener", :group => :development
 group :development, :test do
   gem 'rspec-rails', '~>3.5'
   gem 'capybara'
+  gem 'capybara-webkit', '~>1.1.0'
 end
