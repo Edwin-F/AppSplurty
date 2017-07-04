@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Homepage", :type => :feature do
   before do
+    Quote.destroy_all
     @quote = Quote.create(saying: "the city is on fire", author: "Abe")
   end
 
@@ -20,7 +21,7 @@ RSpec.feature "Homepage", :type => :feature do
 
   describe "quote#create action form" do
     it "returns successfully with an HTTP 200 status code", :js => true do
-      p Quote.all
+      #p Quote.all
       visit root_path
       #within(root_path) do
         click_on "Contribute"
@@ -28,8 +29,8 @@ RSpec.feature "Homepage", :type => :feature do
         fill_in "Who is the author?", :with => 'Einstein'
       #end
       click_on "Create"
-      save_and_open_screenshot('screenshot.png')
-      #page.save_screenshot("screenshot.png")
+      #save_and_open_screenshot('screenshot.png')
+      page.save_screenshot("screenshot.png")
       puts page.html
       p Quote.all
       expect(Quote.count).to eq 2
