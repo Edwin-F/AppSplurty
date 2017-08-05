@@ -22,7 +22,7 @@ Validates user quote contribution and posts to the database
 - Fork the project
 - Run bundle to install gems
 
-  + bundle install +     
+  <tt> bundle install </tt>   
         
 === Database setup
 
@@ -30,8 +30,8 @@ Download and Install Postgres[https://www.postgresql.org/download/]
 
 - Create the databases:
 
-  + rails db:create +
+  <tt> rails db:create </tt>
         
 - Run migrations to create tables:
 
-  + rails db:migrate +
+  <tt> rails db:migrate </tt>
