@@ -1,8 +1,8 @@
-## Splurty
+= Splurty
 
 A database-powered 'Chicago Moment' quote generator with a mobile-first design.
 
-View the [Live Site](https://splurty-edwin-flores.herokuapp.com).
+View the {Live Site}[https://splurty-edwin-flores.herokuapp.com].
 
 
 Features:
@@ -11,29 +11,27 @@ Built with Ruby on Rails and Bootstrap
 Validates user quote contribution and posts to the database
 
 
-## Install
+= Install
       
-### System Requirements
+=== System Requirements
 - Ruby `2.3.1` recommended
 - Rails 4.0.1
 - Postgres 9.2+
  
-### Fork and bundle
+=== Fork and bundle
 - Fork the project
 - Run bundle to install gems
-```bash
-bundle install
-```     
-        
-### Database setup
 
-[Download and Install Postgres](https://www.postgresql.org/download/)
++bundle install+     
+        
+=== Database setup
+
+Download and Install Postgres[https://www.postgresql.org/download/]
 
 - Create the databases:
-```bash
-rails db:create
-```
+
++rails db:create+
         
 - Run migrations to create tables:
-```bash
-rails db:migrate
+
++rails db:migrate+
