@@ -6,9 +6,19 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="turbolinks-cache-control" content="no-cache">
 </head>
 <body>
+  <script>
+    if (document.documentElement.hasAttribute("data-turbolinks-preview")) {
+      // Turbolinks is displaying a preview
+      // removes preview rendering of quote or error message
+      $(".bg-img .container").remove();
+    };
+    // ensures form is submitted even if turbolinks doesn't respond
+    $('.btn-danger').on('click',function(){
+      $('form').submit();
+    });
+  </script>
   <header class="row">
     <div class="col-xs-3">
     <%= link_to root_path, class: 'logo' do %>
@@ -37,7 +47,7 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-no-turbolink="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -71,7 +81,9 @@
         <%= flash[:error].html_safe %>
       </div>
     <% end %>
+
     <%= yield %>
+
   </div>
 </div>
 
